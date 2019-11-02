@@ -1,0 +1,350 @@
+html,
+body {
+  background-color: #232c31;
+  color: #adbec6;
+}
+
+html {
+  font-family: roboto, arial, san-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-size: 14px;
+}
+
+body,
+input,
+textarea,
+select,
+button {
+  font-family: roboto, arial, san-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-size: 14px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.Header {
+  font-size: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 105;
+  background-color: #2f3e45;
+}
+
+.MenuContainer {
+  position: relative;
+  overflow: hidden;
+  height: 80px;
+}
+
+.Menu {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: fit-content;
+}
+
+.MenuItem {
+  display: inline-block;
+  color: #adbec6;
+  font-family: Roboto;
+  font-size: 12px;
+  line-height: 1.166666666666667;
+  text-align: center;
+  margin-left: 15px;
+  transition: color 0.5s;
+  position: relative;
+  padding: 15px 10px;
+  text-transform: uppercase;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.MenuItem.active {
+  color: #10de7c;
+}
+
+.gameContainer {
+  padding: 0 30px;
+  margin-top: 80px;
+  height: calc(100% - 80px);
+}
+
+.TopLineContainer {
+  font-size: 0;
+  padding: 20px 30px;
+  min-height: 80px;
+  /*background-color: #ddd; */
+  box-sizing: border-box;
+}
+
+.TopLineTracker {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 35px;
+  width: 32%;
+  background-color: #141a1d;
+  border-radius: 7.2px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  /*border: 1px solid #fff; */
+}
+
+.TopLineTrackerTxt {
+  color: #fff;
+  position: relative;
+  padding: 9px 0;
+  vertical-align: middle;
+  display: inline-block;
+  padding: 6px 0;
+  font-size: 18px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.HistoryLine {
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 25px;
+}
+
+.HistoryLabel {
+  color: #adbec6;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.3;
+  vertical-align: middle;
+}
+
+.HistoryList {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.HistoryLineItem {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+  margin: 0 8px;
+  display: inline-block;
+  transition: none;
+  padding-left: 6px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.HistoryLineItem.red {
+  color: red;
+}
+
+.HistoryLineItem.green {
+  color: green;
+}
+
+.HistoryLineIcon {
+  margin-left: 15px;
+  cursor: pointer;
+  font-size: 26px;
+  color: #adbec5;
+  transition: color 0.5s;
+  display: inline-block;
+  line-height: 1;
+}
+
+.HistoryLineIcon:hover {
+  color: #607d8b;
+}
+
+.HistoryLineIcon:before {
+  content: "\eb0d";
+}
+
+.middle_panel {
+  width: 68.1979%;
+  height: 100%;
+  padding-right: 30px;
+  display: inline-block;
+  margin-top: 3px;
+}
+
+.right_panel {
+  width: 31.8021%;
+  height: 100%;
+  display: inline-block;
+  margin-top: 3px;
+  min-width: 450px;
+}
+
+.GameStage {
+  padding: 20px 10px 10px 0;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.GameGraphContainer {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.max-profit {
+  position: absolute;
+  top: 0;
+  left: 10%;
+  font-size: 12px;
+  font-weight: 600;
+  color: #b5babb;
+  display: inherit;
+}
+
+.GameGraphContainer .fa-line-chart:before {
+  font-family: icomoon !important;
+  font-style: normal;
+  content: "\E900";
+}
+
+.PlayersContainer {
+  padding: 12px 5px;
+  height: 100%;
+  border-radius: 8px;
+  background: linear-gradient(44.72deg, #2f3e45 0%, #3d5059 100%);
+  box-shadow: 0 0 10px 0 #141a1d;
+}
+
+.PlayerTableHead {
+  margin: 0 10px;
+  border-bottom: 2px solid #607d8b;
+  padding-bottom: 15px;
+  text-align: left;
+}
+
+.table_titles {
+  padding: 5px 10px;
+  color: #adbec6;
+  text-align: left;
+}
+
+.pl_table_data {
+  overflow-y: auto;
+  height: calc(100% - 55px);
+  -webkit-overflow-scrolling: touch;
+  text-align: left;
+  padding: 5px 10px;
+}
+
+.crash_page .pl_name {
+  width: 40%;
+}
+
+.pl_game,
+.pl_bet,
+.pl_profit,
+.pl_no {
+  width: 16%;
+  display: inline-block;
+  text-align: right;
+  font-size: 14px;
+  line-height: 1.1428;
+  padding-left: 20px;
+  white-space: nowrap;
+}
+
+.pl_link {
+  display: block;
+}
+
+.table_titles .pl_name,
+.pl_table_data .pl_name {
+  width: 16%;
+  display: inline-block;
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.1428;
+  padding-left: 20px;
+  text-transform: uppercase;
+}
+
+.table_titles .pl_name:first-child,
+.pl_table_data .pl_name:first-child {
+  width: 40%;
+  padding-left: 0;
+}
+
+.image_section {
+  max-width: 32px;
+  position: relative;
+  display: inline-block;
+}
+
+.bet_levels {
+  max-width: 32px;
+  position: relative;
+  display: inline-block;
+  margin-left: 2px;
+}
+
+.bet_levels.crash {
+  color: red;
+}
+
+.bet_level_40 {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 3px;
+  border: 1px solid;
+  color: #aaa;
+  text-align: center;
+}
+
+.user-logo {
+  display: inline;
+  width: 24px;
+  height: 24px;
+  border-radius: 3px;
+}
+
+.pl_name_txt {
+  margin-left: 0.5rem;
+  color: #aaa;
+}
+
+.pl_count {
+  display: inline-block;
+}
+.pl_count.fr {
+  float: right;
+}
+
+.pl_count .pl_onli {
+  color: #adbec6;
+  font-size: 16px;
+  line-height: 1.1875;
+  padding-left: 10px;
+}
+
+.pl_count .icon {
+  font-size: 22px;
+  color: #adbec6;
+}
