@@ -65,7 +65,6 @@ export class GameGraph extends React.Component<any, any> {
     }
     const nTimeLines: number = this.timestep === 1 ? 10 : ( Math.floor(passed/this.timestep));
     const xShrink = passed / this.timestep;
-    //console.log(this.props.started, nTimeLines);
     //debugger
 
     //Y

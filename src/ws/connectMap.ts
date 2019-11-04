@@ -12,11 +12,9 @@ export const WS_SIGNAL_MAP: { [index: string]:  (payload: any)=> void  }  = {
     AppState.gamePlayerMove({ ...payload });
   },
   [WS_EVENT.GAME_TICK]: payload => {
-    //console.log("tick", payload.coef);
     AppState.setTick(payload.coef)
   },
   [WS_EVENT.GAME_CRASH]: payload => {
-    console.log("crash", payload);
     AppState.gameFinish(payload);
   }
 };
