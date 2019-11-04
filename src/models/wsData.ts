@@ -1,3 +1,8 @@
+export type MessageData = {
+  type: string,
+  payload: object
+}
+
 export type MovePlayerData = {
   user: {
     id: number;

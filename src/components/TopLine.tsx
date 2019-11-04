@@ -1,6 +1,7 @@
 import * as React from "react";
 import State from "./../AppState";
 import { observer } from "mobx-react";
+import { GameFinishData } from "./../models/wsData";
 
 import "./../styles.css";
 
@@ -14,8 +15,8 @@ export class TopLine extends React.Component<any, any> {
         <div className="HistoryLine">
           <span className="HistoryLabel">Latest games:</span>
           <div className="HistoryList">
-            {this.props.history.map(function(game) {
-              return <div className="HistoryLineItem green">{game.coef}x</div>;
+            {this.props.history.map(function(game: GameFinishData) {
+              return <div className="HistoryLineItem green" key={game.current_millis}>{game.coef}x</div>;
             })}
           </div>
           <div className="HistoryLineIcon" />

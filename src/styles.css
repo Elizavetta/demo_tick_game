@@ -24,6 +24,10 @@ button {
   font-size: 14px;
 }
 
+a {
+  text-decoration: none;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -183,6 +187,7 @@ button {
   padding-right: 30px;
   display: inline-block;
   margin-top: 3px;
+  max-width: calc(100% - 450px);
 }
 
 .right_panel {
@@ -207,6 +212,34 @@ button {
   height: 100%;
   width: 100%;
 }
+
+.GameGraphText {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.GameGraphCrashed {
+  color: red;
+  font-size: 3rem;
+}
+
+.GameGraphTick {
+  font-size: 3rem;
+}
+
+.GameGraphNext {
+  font-size: 1.9rem;
+  font-weight: 600;
+}
+
+#GameApp {
+  width: 100%;
+  height: 30rem;
+}
+
 
 .max-profit {
   position: absolute;
@@ -253,6 +286,18 @@ button {
   padding: 5px 10px;
 }
 
+.pl_table_data:nth-child(2n) {
+  background-color: #2f3e45;
+}
+
+.pl_table_data.win {
+  color: #10de7c;
+}
+
+.pl_table_data.lose {
+  color: red;
+}
+
 .crash_page .pl_name {
   width: 40%;
 }
@@ -283,7 +328,10 @@ button {
   line-height: 1.1428;
   padding-left: 20px;
   text-transform: uppercase;
+  font-weight: 600;
 }
+
+
 
 .table_titles .pl_name:first-child,
 .pl_table_data .pl_name:first-child {
@@ -314,8 +362,16 @@ button {
   height: 24px;
   border-radius: 3px;
   border: 1px solid;
-  color: #aaa;
+  /*color: #aaa;*/
   text-align: center;
+  border-radius: 6px;
+    color: #141a1d;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+    background_color: #aaa;
+    box-sizing: border-box;
+    padding: 3px;
 }
 
 .user-logo {

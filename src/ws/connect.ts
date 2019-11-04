@@ -1,4 +1,5 @@
 import { WS_SIGNAL_MAP } from "./connectMap";
+import { MessageData } from "./../models/wsData";
 
 interface IConnection {
   online: Boolean;
@@ -23,23 +24,23 @@ export class Connection implements IConnection {
     this.ws.onclose = this.onclose;
   }
 
-  onopen(event) {
+  onopen(event: Event) {
     console.log(" connection opened ");
   }
 
   onmessage(msgEvent: MessageEvent) {
-    const msgData =
+    const msgData: MessageData =
       typeof msgEvent.data === "string" ? JSON.parse(msgEvent.data) : null;
     if (!msgData) return;
     WS_SIGNAL_MAP[msgData.type](msgData.payload);
   }
 
-  onerror(err: MessageEvent) {
-    console.error("err: ", err);
+  onerror(errEvent: Event) {
+    console.error("err: ", errEvent);
   }
 
-  onclose(event) {
-    if (event.wasClear) {
+  onclose(event: CloseEvent) {
+    if (event.wasClean) {
       // no drop
     } else {
       //dropped

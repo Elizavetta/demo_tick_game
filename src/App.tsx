@@ -20,10 +20,10 @@ export default class App extends React.Component<{}, {}> {
           <TopLine history={AppState.gamehistory} />
           <div>
             <div className="middle_panel">
-              <GameGraph />
+              <GameGraph tick={AppState.currentTick} paused={AppState.paused} countdown={AppState.countDown} started={AppState.startedAt} stopped={AppState.stoppedAt}/>
             </div>
             <div className="right_panel">
-              <Players players={AppState.gameplayers} />
+              <Players players={AppState.gameplayers} paused={AppState.paused}/>
             </div>
           </div>
         </div>

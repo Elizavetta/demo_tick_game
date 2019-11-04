@@ -1,6 +1,7 @@
 import * as React from "react";
 import AppState from "./../AppState";
 import { observer } from "mobx-react";
+import { GamePlayer } from "./../models/GamePlayer";
 
 import "./../styles.css";
 
@@ -15,7 +16,7 @@ export class Players extends React.Component<any, any> {
               <span className="path1" />
               <span className="path2" />
             </span>
-            <span className="pl_onli">3</span>
+            <span className="pl_onli">{this.props.players.length}</span>
           </div>
           <div className="pl_count fr">
             <span className="icon icon-gammdom-symbol" />
@@ -32,9 +33,9 @@ export class Players extends React.Component<any, any> {
         </div>
 
         <div className="pl_table_data">
-          {this.props.players.map(function(pl) {
+          {this.props.players.map(function(pl:GamePlayer) {
             return (
-              <div className="pl_data" key={pl.id}>
+              <div className={"pl_table_data" + (pl.completed ? ' win' : '') + (pl.lost ? ' lose': '' )} key={pl.id}>
                 <div className="pl_name">
                   <a className="pl_link" href="/">
                     <span className="image_section">
@@ -52,9 +53,11 @@ export class Players extends React.Component<any, any> {
                     <span className="pl_name_txt">{pl.username}</span>
                   </a>
                 </div>
-                <div className="pl_game">-</div>
+                <div className="pl_game">{pl.coef || '-'}</div>
                 <div className="pl_bet">{pl.activeGameBet}</div>
-                <div className="pl_profit">-</div>
+                <div className="pl_profit">
+                  {pl.profit ? '+' + pl.profit : '-'}
+                </div>
               </div>
             );
           })}
