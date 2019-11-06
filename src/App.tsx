@@ -17,10 +17,10 @@ export default class App extends React.Component<{}, {}> {
       <div className="App">
         <Header />
         <div className="gameContainer">
-          <TopLine history={AppState.gamehistory} />
+          <TopLine history={AppState.gamehistory} tick={AppState.currentTick} paused={AppState.paused} finished={AppState.roundFinished}/>
           <div>
             <div className="middle_panel">
-              <GameGraph tick={AppState.currentTick} paused={AppState.paused} countdown={AppState.countDown} started={AppState.startedAt} stopped={AppState.stoppedAt}/>
+              <GameGraph tick={AppState.currentTick} paused={AppState.paused} finished={AppState.roundFinished} countdown={AppState.countDown} started={AppState.startedAt} stopped={AppState.stoppedAt}/>
             </div>
             <div className="right_panel">
               <Players players={AppState.gameplayers} paused={AppState.paused}/>

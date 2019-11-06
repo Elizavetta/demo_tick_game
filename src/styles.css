@@ -85,6 +85,13 @@ a {
   color: #10de7c;
 }
 
+.MenuItemIcon {
+  font-family: 'Linearicons-Free';
+  position:relative;
+  padding-bottom: 7px;
+  font-size: 22px;
+}
+
 .gameContainer {
   padding: 0 30px;
   margin-top: 80px;
@@ -119,7 +126,7 @@ a {
   vertical-align: middle;
   display: inline-block;
   padding: 6px 0;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1;
   text-transform: uppercase;
 }
@@ -166,19 +173,16 @@ a {
 .HistoryLineIcon {
   margin-left: 15px;
   cursor: pointer;
-  font-size: 26px;
+  font-size: 20px;
   color: #adbec5;
   transition: color 0.5s;
   display: inline-block;
   line-height: 1;
+   font-family: 'Linearicons-Free';
 }
 
 .HistoryLineIcon:hover {
   color: #607d8b;
-}
-
-.HistoryLineIcon:before {
-  content: "\eb0d";
 }
 
 .middle_panel {
@@ -219,15 +223,17 @@ a {
   height: 100%;
   text-align: center;
   font-size: 2rem;
+  top: 42%;
+  color: #fff;
 }
 
 .GameGraphCrashed {
   color: red;
-  font-size: 3rem;
+  font-size: 4rem;
 }
 
 .GameGraphTick {
-  font-size: 3rem;
+  font-size: 3.8rem;
 }
 
 .GameGraphNext {

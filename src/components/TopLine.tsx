@@ -10,7 +10,18 @@ export class TopLine extends React.Component<any, any> {
     return (
       <div className="TopLineContainer">
         <div className="TopLineTracker">
-          <div className="TopLineTrackerTxt">in progress | good luck</div>
+          <div className="TopLineTrackerTxt">
+          {
+              !this.props.paused &&
+              <span> in progress | good luck </span>
+            }
+            {this.props.paused && this.props.finished &&
+              <span>Crashed @ {this.props.tick}x</span>
+            }
+            {this.props.paused && !this.props.finished &&
+              <span> Starting Game </span>
+            }
+          </div>
         </div>
         <div className="HistoryLine">
           <span className="HistoryLabel">Latest games:</span>
@@ -19,7 +30,7 @@ export class TopLine extends React.Component<any, any> {
               return <div className="HistoryLineItem green" key={game.current_millis}>{game.coef}x</div>;
             })}
           </div>
-          <div className="HistoryLineIcon" />
+          <div className="HistoryLineIcon lnr-history" />
         </div>
       </div>
     );

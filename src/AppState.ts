@@ -8,6 +8,7 @@ export class AppState {
   @observable gamehistory: GameFinishData[];
   @observable gameplayers: GamePlayer[];
   @observable paused: boolean = false;
+  @observable roundFinished: boolean = false;
   @observable nextRoundTick: number;
   @observable currentTick: number;
   @observable countDown: number;
@@ -24,13 +25,13 @@ export class AppState {
     this.nextRoundTick = 0;
     this.currentTick = 0;
     this.countDown = 0;
-
     this._conn = new Connection();
   }
 
   @computed get historyLastGames() {
-    if (this.gamehistory.length <= 5) return this.gamehistory;
-    return this.gamehistory.slice(this.gamehistory.length - 5, 5);
+    //if (this.gamehistory.length <= 5) return this.gamehistory;
+    //return this.gamehistory.slice(this.gamehistory.length - 5, 5);
+    return this.gamehistory
   }
 
   @action
@@ -40,7 +41,7 @@ export class AppState {
 
   @action
   addGamePlayer = (player: GamePlayer): void => {
-    if (this.paused) {
+    if (this.roundFinished) {
       this.gameStartPlayers();
     }
     this.gameplayers.push(player);
@@ -78,6 +79,7 @@ export class AppState {
 
   @action
   gameStart = (): void => {
+    this.paused = false;
     this.startedAt = Date.now();
     this.nextRoundTick = 0;
     clearInterval(this._cdint);
@@ -87,7 +89,9 @@ export class AppState {
   @action
   gameStartPlayers = (): void => {
     this.clearAllPlayers();
-    this.paused = false;
+    setTimeout(()=>{
+      this.roundFinished = false;
+    }, 1000);
     this.startedAt = 0;
     this.stoppedAt = 0;
   }
@@ -107,15 +111,18 @@ export class AppState {
   @action
   gameFinish = (payload: GameFinishData): void => {
     this.paused = true;
+    this.roundFinished = true;
     this.stoppedAt = Date.now();
-    this.gamehistory.push(payload);
+    this.gamehistory.unshift(payload);
     this.nextRoundTick = payload.next_round_millis;
+
     if (this.gamehistory.length > GAME_HISTORY_LENGTH) {
       this.gamehistory = this.gamehistory.slice(
-        this.gamehistory.length - GAME_HISTORY_LENGTH,
+        0,
         GAME_HISTORY_LENGTH
       );
     }
+
     this.setLost();
     this.planGameStart();
   };
